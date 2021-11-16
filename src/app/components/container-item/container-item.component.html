@@ -1,0 +1,38 @@
+<ion-card>
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>{{title}}</ion-label>
+    <ion-checkbox
+      [disabled]="thingsVolume > freeSpace"
+      *ngIf="type === 'container'; else things"
+      [(ngModel)]="checked"
+      (ionChange)="checkboxClick($event, id, type)"
+      slot="start" color="secondary">
+    </ion-checkbox>
+    <ng-template #things>
+      <ion-checkbox
+        (ionChange)="checkboxClick($event, id, type)"
+        slot="start"
+        color="secondary">
+      </ion-checkbox>
+    </ng-template>
+    <ion-button (click)="openEditForm(id)" fill="outline" slot="end">Edit</ion-button>
+    <ion-button (click)="remove(id)" color="danger" fill="outline" slot="end">Remove</ion-button>
+  </ion-item>
+
+  <ion-card-content>
+    <ion-item *ngIf="type === 'container'">free space: {{freeSpace}}</ion-item>
+    <ion-item>volume: {{volume}}</ion-item>
+    <ion-item>{{description}}</ion-item>
+  </ion-card-content>
+  <ion-card *ngIf="type === 'container'">
+    <ion-card-content *ngFor="let item of items">
+      <ion-label>
+        <ion-icon name="close-outline" class="ion-float-end" (click)="removeFromContainer(item.id, id)"></ion-icon>
+      </ion-label>
+      <ion-label>{{item.title}}</ion-label>
+      <ion-item>volume: {{item.volume}} {{item.description}}</ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-card>
+

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="thingForm" class="Form Login-form">
+    <ion-grid class="ion-no-padding">
+      <ion-col>
+        <ion-item>
+          <ion-label>Title</ion-label>
+          <ion-input formControlName="title">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>Volume</ion-label>
+          <ion-input [disabled]="formItem?.selectedThings?.length" formControlName="volume">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-input formControlName="description">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center ion-margin">
+        <ion-button [disabled]="thingForm.invalid" (click)="submit()">Submit</ion-button>
+      </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button (click)="openForm('thing')">
+          thing
+          <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+        </ion-button>
+        <ng-container *ngFor="let thing of things; trackBy: trackById">
+        <app-container-item
+          *ngIf="!thing.isContainer"
+          [title]="thing.title"
+          [description]="thing.description"
+          [volume]="thing.volume"
+          [id]="thing.id"
+        ></app-container-item>
+        </ng-container>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <ion-button (click)="openForm('container')">
+          container
+          <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+        </ion-button>
+        <app-container-item
+          *ngFor="let container of containers; trackBy: trackById"
+          [title]="container.title"
+          [description]="container.description"
+          [volume]="container.volume"
+          [id]="container.id"
+          [type]="container.itemType"
+          [checked]="container.checked"
+          [thingsVolume]="thingsVolume"
+          [items]="container.selectedThings"
+          [freeSpace]="container.freeSpace"
+        ></app-container-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center ion-margin-vertical">
+        <ion-button (click)="moveToContainer()" [disabled]="isDisabledMoveToButton()">
+          move to container
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

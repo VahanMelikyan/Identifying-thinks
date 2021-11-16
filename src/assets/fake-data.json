@@ -1,0 +1,51 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "some text 1",
+      "volume": 23,
+      "description": "some description 1",
+      "itemType": "thing",
+      "checked": false,
+      "isContainer": false
+    },
+    {
+      "id": 2,
+      "title": "some text 2",
+      "volume": 35,
+      "description": "some description 2",
+      "itemType": "thing",
+      "checked": false,
+      "isContainer": false
+    },
+    {
+      "id": 3,
+      "title": "some text 3",
+      "volume": 50,
+      "description": "some description 3",
+      "itemType": "container",
+      "checked": false,
+      "selectedThings": null,
+      "freeSpace": 50
+    },
+    {
+      "id": 4,
+      "title": "some text 4",
+      "volume": 50,
+      "description": "some description 4",
+      "itemType": "container",
+      "checked": false,
+      "selectedThings": null,
+      "freeSpace": 50
+    },
+    {
+      "id": 5,
+      "title": "some text 5",
+      "volume": 5,
+      "description": "some description 5",
+      "itemType": "thing",
+      "checked": false,
+      "isContainer": false
+    }
+  ]
+}
