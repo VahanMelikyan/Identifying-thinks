@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
+  "engines": {
+    "node": "12.18.x",
+    "npm": "6.14.x"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
